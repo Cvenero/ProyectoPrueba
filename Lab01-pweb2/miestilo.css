@@ -72,3 +72,10 @@ address {
   margin-bottom: 60px;
   margin-right:120px;
 }
+
+.clase-dimension2{
+  display: flex;
+  width:650px;
+  margin-bottom: 60px;
+  margin-right:120px;
+}

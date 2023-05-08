@@ -45,4 +45,20 @@ address {
     margin-left: 130px;
     font-size: clamp(20px, 0vw, 0px);
 }
+.fondo img{
+  position: flex;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
 
+}
+.opacid{
+  opacity: 85%;
+}
+.fondo{
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }

@@ -9,5 +9,15 @@ function darValor(valor){
 
 function limpiar(){
     operacion = "";
-    resultado.valor="";
+    resultado.value="";
+}
+
+function darResultado(){
+
+    try{
+        resultado = eval(operacion);
+        
+    }catch(error){
+    resultado.value="Error";
+    }
 }

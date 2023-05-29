@@ -4,6 +4,11 @@
     width: 350px;
     grid-template-columns: repeat(5,2fr);
     max-width: 100%;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
 }
 body{
     align-items: center;
@@ -13,14 +18,7 @@ h1 {
     margin-top: 40px;
     font-size: 40px;
     color: rgb(8, 124, 124);}
-.calculadora {
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 12px;
-    }
+
 .botones {
     display: grid;
     grid-template-columns: repeat(4, 1f);
@@ -41,7 +39,7 @@ background-color: #f3aaaa;
 background-color: #46ceb7;
 }
 
-#result {
+#resultado {
 width: 95%;
 margin-bottom: 10px;
 padding: 5px;

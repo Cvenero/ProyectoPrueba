@@ -15,8 +15,10 @@ function limpiar(){
 function darResultado(){
 
     try{
-        resultado = eval(operacion);
-        
+        const aux = eval(operacion);
+        operacion=aux.toString();
+        resultado.value=operacion;
+
     }catch(error){
     resultado.value="Error";
     }

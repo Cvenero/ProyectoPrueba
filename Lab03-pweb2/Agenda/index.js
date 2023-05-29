@@ -14,19 +14,3 @@ app.get('/', (request, response) => {
 })
 
 
-app.get('/Ver', (request, response) => {
-    fs.readFile(path.resolve(__dirname, '/'), 'utf8',
-        (err, data) => {
-            if (err) {
-                console.error(err)
-                response.status(500).json({
-                    error: 'message'
-                })
-                return
-            }
-            response.json({
-                text: data.replace(/\n/g, '<br>')
-            })
-        })
-    //
-})

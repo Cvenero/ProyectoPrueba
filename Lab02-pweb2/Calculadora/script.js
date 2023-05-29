@@ -1,9 +1,9 @@
 let resultado = document.getElementById("resultado");
 let operacion = "";
 
-function darValor(valor){
-    operacion= operacion+valor;
-    resultado.valor = operacion;
+function darValor(value){
+    operacion= operacion+value;
+    resultado.value = operacion;
 
 }
 
@@ -15,7 +15,7 @@ function limpiar(){
 function darResultado(){
 
     try{
-        const aux = eval(operacion);
+        var aux = eval(operacion);
         operacion=aux.toString();
         resultado.value=operacion;
 

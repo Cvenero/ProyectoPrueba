@@ -2,7 +2,7 @@ let resultado = document.getElementById("resultado");
 let operacion = "";
 
 function darValor(value){
-    operacion= operacion+value;
+    operacion +=value;
     resultado.value = operacion;
 
 }

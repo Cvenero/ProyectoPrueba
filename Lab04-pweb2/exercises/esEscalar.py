@@ -4,10 +4,10 @@ def esEscalar(m):
         for j in range(len(m)):
             if i != j:
                 if m[i][j] != 0:
-                        print(m[i][j])
+                    print(m[i][j])
                     return False
             elif m[i][j] != d:
-                    print(m[i][j])
+                print(m[i][j])
                 return False
     return True
 

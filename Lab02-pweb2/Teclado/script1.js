@@ -10,7 +10,13 @@ Array.from(botones).forEach(function(botones) {
     });
 });
 //
-
+enter.addEventListener("click", function() {
+    codigoInput.value = "";
+    
+    Array.from(botones).forEach(function(botones) {
+      botones.style.order = Math.floor(Math.random() * 10);
+    });
+});
 
 
 

@@ -1,10 +1,9 @@
 from interpreter import draw
 from chessPictures import *
-from picture import Picture
-
-pieces = [king, knight, queen] 
 
 
-for piece_img in pieces:
-    draw(piece_img)
+line1 = knight.join(knight.negative())
+line2 = knight.negative().join(knight)
 
+img = line1.up(line2)
+draw(img)

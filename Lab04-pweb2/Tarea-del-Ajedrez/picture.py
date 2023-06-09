@@ -17,7 +17,7 @@ class Picture:
     vertical = []
     for value in self.img:
       vertical.append(value[::-1])
-    return vertical
+    return Picture(vertical)
 
   def horizontalMirror(self):
     """ Devuelve el espejo horizontal de la imagen """
@@ -28,7 +28,7 @@ class Picture:
       for caracter in valor:
         linea=caracter+linea
       horizontal.append(linea)
-    return horizontal
+    return Picture(horizontal)
 
   def negative(self):
     """ Devuelve un negativo de la imagen """
@@ -40,7 +40,7 @@ class Picture:
         linea = linea+self._invColor(caracter)
       negativo.append(linea)
 
-    return negativo
+    return Picture(negativo)
 
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
@@ -49,10 +49,13 @@ class Picture:
     for value in range(len(self.img)):
       ingreso.append(str(self.img[value])+str(p.img[value]))
 
-    return ingreso
+    return Picture(ingreso)
 
   def up(self, p):
-    return Picture(None)
+    arriba = []
+    for value in range(len(p.img)):
+      arriba.append(p.img[value])
+    return Picture(arriba)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la

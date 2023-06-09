@@ -2,9 +2,9 @@ from interpreter import draw
 from chessPictures import *
 
 
-line1 = knight.join(knight.negative())
-line2 = knight.negative().join(knight)
+arriba = knight.join(knight.negative())
+abajo = knight.negative().join(knight)
 
-img = line1.up(line2)
+img = arriba.up(abajo)
 
 draw(img)

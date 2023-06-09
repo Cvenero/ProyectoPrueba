@@ -52,7 +52,7 @@ class Picture:
     return Picture(ingreso)
 
   def up(self, p):
-    arriba = []
+    arriba = self.img
     for value in range(len(p.img)):
       arriba.append(p.img[value])
     return Picture(arriba)

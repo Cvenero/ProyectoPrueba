@@ -25,13 +25,21 @@ class Picture:
     horizontal = []
     for valor in self.img:
       linea=''
-      for punto in valor:
-        linea=punto+linea
+      for caracter in valor:
+        linea=caracter+linea
       horizontal.append(linea)
     return horizontal
 
   def negative(self):
     """ Devuelve un negativo de la imagen """
+    negativo=[]
+
+    for value in self.img:
+      linea=''
+      for caracter in value:
+        linea = linea+self._invColor(caracter)
+      negativo.append(linea)
+
     return Picture(None)
 
   def join(self, p):

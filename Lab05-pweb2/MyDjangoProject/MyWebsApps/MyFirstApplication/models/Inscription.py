@@ -14,6 +14,7 @@ def validate_even(value):
         params={’value’: value},
     )
 
+    
 class Inscription(models.Model):
     workload = models.ForeignKey(Workload, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, validators=[validate_even])

@@ -1,5 +1,8 @@
 from django.db import models
 
+"""
+Modelo para representar las categorías de los productos.
+"""
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()

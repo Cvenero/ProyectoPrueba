@@ -3,6 +3,9 @@ from django.db import models
 from .Category import Category
 from .Supplier import Supplier
 
+"""
+Modelo para representar los productos.
+"""
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()

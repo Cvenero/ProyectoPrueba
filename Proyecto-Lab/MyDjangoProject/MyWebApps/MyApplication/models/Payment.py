@@ -2,6 +2,9 @@ from django.db import models
 
 from .Sale import Sale
 
+"""
+Modelo para representar los pagos de las ventas.
+"""
 class Payment(models.Model):
     sale = models.ForeignKey(Sale, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=8, decimal_places=2)

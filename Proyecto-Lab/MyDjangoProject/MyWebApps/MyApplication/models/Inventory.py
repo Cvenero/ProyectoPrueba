@@ -2,6 +2,9 @@ from django.db import models
 
 from .Product import Product
 
+"""
+Modelo para representar el inventario de productos.
+"""
 class Inventory(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)

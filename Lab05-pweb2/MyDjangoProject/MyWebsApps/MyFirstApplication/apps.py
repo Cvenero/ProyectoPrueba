@@ -7,5 +7,5 @@ class MyfirstapplicationConfig(AppConfig):
 
 
 class Aplicacion1Config(AppConfig):
-    default_auto_field = ’django.db.models.BigAutoField’
-    name = ’MyWebApps.MyFirstApplication’
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'MyWebsApps.MyFirstApplication'

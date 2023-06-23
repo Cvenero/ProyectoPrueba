@@ -5,13 +5,16 @@ from django.db.models.constraints import UniqueConstraint
 from django.core.exceptions import ValidationError, NON_FIELD_ERRORS
 from django.utils.translation import gettext_lazy as _
 
+from .Workload import Workload
+from .Student import Student
+
 import uuid
 
 def validate_even(value):
     if value == 1:
         raise ValidationError(
-        _(’ %(value)s is 1’),
-        params={’value’: value},
+        _(' %(value)s is 1'),
+        params={'value': value},
     )
 
     
@@ -23,8 +26,8 @@ class Inscription(models.Model):
     modified = models.DateTimeField(null=False, auto_now=True)
 
     class Meta:
-        ordering = [’workload’, ’student’, ’created’]
-        constraints = [models.UniqueConstraint(fields=[’workload’, ’student’], name=’unique_inscription’)]
+        ordering = ['workload', 'student', 'created']
+        constraints = [models.UniqueConstraint(fields=['workload', 'student'], name='unique_inscription')]
 
     def clean(self):
         if (self.workload.id == 3 and self.student.id == 2):

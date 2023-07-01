@@ -15,7 +15,7 @@ class Teacher(models.Model):
     created = models.DateTimeField(editable=False, null=False, auto_now_add=True)
     modified = models.DateTimeField(null=False, auto_now=True)
     class Meta:
-        ordering = [’names’, ’father_surname’, ’mother_surname’]
+        ordering = ['names', 'father_surname', 'mother_surname']
 
     def save(self, *args, **kwargs):
         self.names = self.names.upper()

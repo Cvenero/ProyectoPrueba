@@ -16,7 +16,7 @@ class Student(models.Model):
     modified = models.DateTimeField(null=False, auto_now=True)
 
     class Meta:
-        ordering = [’cui’, ’names’, ’father_surname’, ’mother_surname’]
+        ordering = ['cui', 'names', 'father_surname', 'mother_surname']
 
     def save(self, *args, **kwargs):
         self.names = self.names.upper()

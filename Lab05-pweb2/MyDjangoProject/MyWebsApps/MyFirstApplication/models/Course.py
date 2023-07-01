@@ -7,34 +7,34 @@ import uuid
 class Course(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     CURRICULUMS = [
-        (0, ’Sin Plan’),
-        (2017, ’Plan 2017’),
-        (2023, ’Plan 2023’),
+        (0, 'Sin Plan'),
+        (2017, 'Plan 2017'),
+        (2023, 'Plan 2023'),
     ]
     curriculum = models.IntegerField(null=False, choices=CURRICULUMS, default=2017)
     YEARS = [
-        (0, ’Sin ~nao’),
-        (1, ’1er ~nao’),
-        (2, ’2do ~nao’),
-        (3, ’3er ~nao’),
-        (4, ’4to ~nao’),
-        (5, ’5to ~nao’),
-        (6, ’6to ~nao’),
-        (7, ’7mo ~nao’),
+        (0, 'Sin ~nao'),
+        (1, '1er ~nao'),
+        (2, '2do ~nao'),
+        (3, '3er ~nao'),
+        (4, '4to ~nao'),
+        (5, '5to ~nao'),
+        (6, '6to ~nao'),
+        (7, '7mo ~nao'),
     ]
     year = models.IntegerField(null=False, choices=YEARS, default=0)
     SEMESTERS = [
-        (0, ’Sin semestre’),
-        (1, ’I semestre’),
-        (2, ’II semestre’),
-        (3, ’III semestre’),
-        (4, ’IV semestre’),
-        (5, ’V semestre’),
-        (6, ’VI semestre’),
-        (7, ’VII semestre’),
-        (8, ’VIII semestre’),
-        (9, ’IX semestre’),
-        (10, ’X semestre’),
+        (0, 'Sin semestre'),
+        (1, 'I semestre'),
+        (2, 'II semestre'),
+        (3, 'III semestre'),
+        (4, 'IV semestre'),
+        (5, 'V semestre'),
+        (6, 'VI semestre'),
+        (7, 'VII semestre'),
+        (8, 'VIII semestre'),
+        (9, 'IX semestre'),
+        (10, 'X semestre'),
     ]
     semester = models.IntegerField(null=False, choices=SEMESTERS, default=0)
     code = models.CharField(unique=True, null=True, blank=True, max_length=25)
@@ -52,10 +52,10 @@ class Course(models.Model):
     created = models.DateTimeField(editable=False, null=False, auto_now_add=True)
     modified = models.DateTimeField(null=False, auto_now=True)
     #prerequisites = models.ManyToManyField(Course)
-    prerequisites = models.ManyToManyField(’self’, blank=True, symmetrical=False)
+    prerequisites = models.ManyToManyField('self', blank=True, symmetrical=False)
 
     class Meta:
-        ordering = [’curriculum’, ’year’, ’semester’, ’code’, ’name’]
+        ordering = ['curriculum', 'year', 'semester', 'code', 'name']
 
     def save(self, *args, **kwargs):
         self.name = self.name.upper()

@@ -1,6 +1,8 @@
 
 my_env/bin/*
 my_env/lib/*
+my_env/Scripts/*
+my_env/Include/*
 my_env/src/__pycache__/*
 *.pyc
 Tarea-del-Ajedrez/__pycache__/*

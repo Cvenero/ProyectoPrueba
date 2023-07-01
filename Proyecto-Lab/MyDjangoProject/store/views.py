@@ -83,4 +83,19 @@ class CategoryDetailView(generic.DetailView):
         category = self.get_object()
         context['products'] = category.product_set.all()  # Obtiene todos los productos relacionados con la categoría
         return context
-    
+
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+class ProductCreate(CreateView):
+    model = Product
+    fields = '__all__'
+
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = '__all__'
+
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('products')

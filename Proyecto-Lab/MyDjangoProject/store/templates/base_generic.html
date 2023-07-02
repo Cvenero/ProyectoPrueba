@@ -21,9 +21,10 @@
                 <ul class="sidebar-nav">
                     {% if user.is_authenticated %}
                         <li>User: {{ user.get_username }}</li>
-                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Cierre de sesión</a></li>
                     {% else %}
-                        <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+                        <li><a href="{% url 'login' %}?next={{ request.path }}">Inicio de sesión</a></li>
+                        <li><a href="{% url 'register' %}">Registrarse</a></li>
                     {% endif %}
                 </ul>
                 
@@ -36,7 +37,7 @@
                 {% endif %}
                 
                 <ul class="sidebar-nav">
-                    <li><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                    <li><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
                     <li><a href="{% url 'products' %}" class="nav-link">Productos</a></li>
                     <li><a href="{% url 'categorys' %}" class="nav-link">Categorías</a></li>
                 </ul>

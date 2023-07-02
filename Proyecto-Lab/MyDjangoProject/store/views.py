@@ -103,3 +103,19 @@ class ProductDelete(PermissionRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('products')
     permission_required = 'catalog.can_mark_returned'
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

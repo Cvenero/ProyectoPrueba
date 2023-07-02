@@ -85,17 +85,21 @@ class CategoryDetailView(generic.DetailView):
         return context
 
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-class ProductCreate(CreateView):
+class ProductCreate(PermissionRequiredMixin, CreateView):
     model = Product
     fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
 
-class ProductUpdate(UpdateView):
+class ProductUpdate(PermissionRequiredMixin, UpdateView):
     model = Product
     fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
 
-class ProductDelete(DeleteView):
+class ProductDelete(PermissionRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('products')
+    permission_required = 'catalog.can_mark_returned'

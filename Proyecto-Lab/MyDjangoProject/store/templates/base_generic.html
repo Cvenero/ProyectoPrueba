@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <div>{% block title %}{% endblock %}</div>
+    {% block title %}{% endblock %}
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,17 +19,34 @@
             <div class="col-sm-2">
                 {% block sidebar %}
                 <ul class="sidebar-nav">
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'products' %}">Productos</a></li>
-                    <li><a href="{% url 'categorys' %}">Categorías</a></li>
-                    <li><a href="">All authors</a></li>
+                    {% if user.is_authenticated %}
+                        <li>User: {{ user.get_username }}</li>
+                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Cierre de sesión</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}?next={{ request.path }}">Inicio de sesión</a></li>
+                        <li><a href="{% url 'register' %}">Registrarse</a></li>
+                    {% endif %}
                 </ul>
-
+                
+                {% if user.is_staff %}
+                <ul class="sidebar-nav">
+                    <li>Personal</li>
+                    {% if perms.catalog.can_mark_returned %}
+                        <li><a href="{% url 'product_create' %}">Crear Producto</a></li>
+                    {% endif %}
+                {% endif %}
+                
+                <ul class="sidebar-nav">
+                    <li><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
+                    <li><a href="{% url 'products' %}" class="nav-link">Productos</a></li>
+                    <li><a href="{% url 'categorys' %}" class="nav-link">Categorías</a></li>
+                </ul>
                 {% endblock %}
             </div>
 
-            <div class="col-sm-10 ">{% block content %}{% endblock %} </div>
-
+            <div class="col-sm-10">
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </div>
 </body>

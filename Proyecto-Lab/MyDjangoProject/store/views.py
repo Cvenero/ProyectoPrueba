@@ -83,4 +83,39 @@ class CategoryDetailView(generic.DetailView):
         category = self.get_object()
         context['products'] = category.product_set.all()  # Obtiene todos los productos relacionados con la categoría
         return context
-    
+
+
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+class ProductCreate(PermissionRequiredMixin, CreateView):
+    model = Product
+    fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
+
+class ProductUpdate(PermissionRequiredMixin, UpdateView):
+    model = Product
+    fields = '__all__'
+    permission_required = 'catalog.can_mark_returned'
+
+class ProductDelete(PermissionRequiredMixin, DeleteView):
+    model = Product
+    success_url = reverse_lazy('products')
+    permission_required = 'catalog.can_mark_returned'
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

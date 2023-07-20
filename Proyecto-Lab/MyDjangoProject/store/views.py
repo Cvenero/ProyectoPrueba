@@ -119,3 +119,11 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+from rest_framework import viewsets
+from .serializers import ProductSerializer
+from .models.Product import Product
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
